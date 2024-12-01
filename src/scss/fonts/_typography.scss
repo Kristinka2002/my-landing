@@ -1,0 +1,77 @@
+@use "sass:map";
+$typography-map: (
+    "display-large": ("line-height": 64px,
+        "size": 57px,
+        "tracking": -0.25px,
+        "weight": 400),
+    "display-medium": ("line-height": 52px,
+        "size": 45px,
+        "tracking": 0,
+        "weight": 400),
+    "headline-largest": (
+        "line-height": 44px,
+        "size": 36px,
+        "tracking": 0px,
+        "weight": 400),
+    "headline-large": ("line-height": 40px,
+        "size": 32px,
+        "tracking": 0,
+        "weight": 400),
+    "headline-medium": ("line-height": 36px,
+        "size": 28px,
+        "tracking": 0,
+        "weight": 400),
+    "title-large": ("line-height": 28px,
+        "size": 22px,
+        "tracking": 0px,
+        "weight": 400),
+    "body-large": ("line-height": 24px,
+        "size": 16px,
+        "tracking": 0.5px,
+        "weight": 400),
+    "body-medium": ("line-height": 20px,
+        "size": 14px,
+        "tracking": 0.25px,
+        "weight": 400),
+);
+
+@mixin _private-apply-font($font-style) {
+    $font-map: map.get($typography-map, $font-style);
+
+    font-size: map.get($font-map, "size");
+    font-weight: map.get($font-map, "weight");
+    letter-spacing: map.get($font-map, "tracking");
+    line-height: map.get($font-map, "line-height");
+}
+
+@mixin typography-headline-largest {
+    @include _private-apply-font("headline-largest");
+}
+
+@mixin typography-display-large {
+    @include _private-apply-font("display-large");
+}
+
+@mixin typography-display-medium {
+    @include _private-apply-font("display-medium");
+}
+
+@mixin typography-headline-large {
+    @include _private-apply-font("headline-large");
+}
+
+@mixin typography-headline-medium {
+    @include _private-apply-font("headline-medium");
+}
+
+@mixin typography-title-large {
+    @include _private-apply-font("title-large");
+}
+
+@mixin typography-body-large {
+    @include _private-apply-font("body-large");
+}
+
+@mixin typography-body-medium {
+    @include _private-apply-font("body-medium");
+}
